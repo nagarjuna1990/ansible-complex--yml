@@ -1,0 +1,12 @@
+- hosts: dockerhost
+  tasks:
+  - name: Docker image build
+    docker_image:
+      name: myappimg
+      tag: mytag
+      nocache: yes
+      build:
+        dockerfile: Dockerfile
+        path: /root/docker
+      state: present
+      source: build
